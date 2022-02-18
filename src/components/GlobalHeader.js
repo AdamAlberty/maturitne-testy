@@ -42,6 +42,8 @@ const HeaderWrapper = styled.header`
   }
 
   .left {
+    display: flex;
+    align-items: center;
     a {
       font-size: 1rem;
       font-weight: bold;
@@ -52,12 +54,21 @@ const HeaderWrapper = styled.header`
   .right {
     a {
       background-color: ${(props) => props.theme.accent};
-      text-decoration: none;
+      padding: 0.3rem;
       margin-left: 0.3rem;
+      border-radius: 0.3rem;
+
+      text-decoration: none;
       display: flex;
       align-items: center;
+
+      border: 2px solid transparent;
       div {
         margin-left: 0.3rem;
+      }
+
+      &:hover {
+        border: 2px solid white;
       }
     }
   }
