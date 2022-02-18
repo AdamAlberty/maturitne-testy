@@ -107,7 +107,7 @@ export const answerKeys = [
       {
         number: 21,
         type: "select",
-        answer: "",
+        answer: "D",
       },
       {
         number: 22,
@@ -156,4 +156,161 @@ export const answerKeys = [
       },
     ],
   },
-]
+  {
+    id: 2,
+    slug: "2013-8103",
+    name: "Maturitný test 2013 - 8103",
+    questions: [
+      {
+        number: 1,
+        type: "long",
+        answers: ["12"],
+      },
+      {
+        number: 2,
+        type: "long",
+        answers: ["78.4"],
+      },
+      {
+        number: 3,
+        type: "long",
+        answers: ["47.75"],
+      },
+      {
+        number: 4,
+        type: "long",
+        answers: ["13"],
+      },
+      {
+        number: 5,
+        type: "long",
+        answers: ["16.5"],
+      },
+      {
+        number: 6,
+        type: "long",
+        answers: ["117.28"],
+      },
+      {
+        number: 7,
+        type: "long",
+        answers: ["4000"],
+      },
+      {
+        number: 8,
+        type: "long",
+        answers: ["8"],
+      },
+      {
+        number: 9,
+        type: "long",
+        answers: ["4"],
+      },
+      {
+        number: 10,
+        type: "long",
+        answers: ["48"],
+      },
+      {
+        number: 11,
+        type: "long",
+        answers: ["30"],
+      },
+      {
+        number: 12,
+        type: "long",
+        answers: ["30"],
+      },
+      {
+        number: 13,
+        type: "long",
+        answers: ["15.63"],
+      },
+      {
+        number: 14,
+        type: "long",
+        answers: ["-8"],
+      },
+      {
+        number: 15,
+        type: "long",
+        answers: ["3840"],
+      },
+      {
+        number: 16,
+        type: "long",
+        answers: ["7"],
+      },
+      {
+        number: 17,
+        type: "long",
+        answers: ["0"],
+      },
+      {
+        number: 18,
+        type: "long",
+        answers: ["123"],
+      },
+      {
+        number: 19,
+        type: "long",
+        answers: ["60"],
+      },
+      {
+        number: 20,
+        type: "long",
+        answers: ["568"],
+      },
+      {
+        number: 21,
+        type: "select",
+        answer: "D",
+      },
+      {
+        number: 22,
+        type: "select",
+        answer: "A",
+      },
+      {
+        number: 23,
+        type: "select",
+        answer: "C",
+      },
+      {
+        number: 24,
+        type: "select",
+        answer: "B",
+      },
+      {
+        number: 25,
+        type: "select",
+        answer: "B",
+      },
+      {
+        number: 26,
+        type: "select",
+        answer: "C",
+      },
+      {
+        number: 27,
+        type: "select",
+        answer: "E",
+      },
+      {
+        number: 28,
+        type: "select",
+        answer: "C",
+      },
+      {
+        number: 29,
+        type: "select",
+        answer: "E",
+      },
+      {
+        number: 30,
+        type: "select",
+        answer: "B",
+      },
+    ]
+  },
+];
