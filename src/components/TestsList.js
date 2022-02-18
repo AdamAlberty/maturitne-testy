@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { tests } from "../data/tests";
+import { tests } from "../data/tests.ts";
 import TestItem from "./TestItem";
 const TestsList = () => {
   return (
@@ -8,6 +8,7 @@ const TestsList = () => {
         <TestItem
           key={test.id}
           id={test.id}
+          slug={test.slug}
           name={test.name}
           testLink={test.testLink}
           keysLink={test.keysLink}

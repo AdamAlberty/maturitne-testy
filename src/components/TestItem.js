@@ -15,7 +15,7 @@ const TestItem = (props) => {
       </div>
 
       <div className="right">
-        <Link to={`/test/${props.id}`}>Spustiť test</Link>
+        <Link to={`/test/${props.slug}`}>Spustiť test</Link>
 
         <a href={props.keysLink} target="_blank" rel="noopener noreferrer">
           Odpovede
