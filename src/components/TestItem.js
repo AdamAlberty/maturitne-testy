@@ -1,9 +1,10 @@
-import styled from "styled-components";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import styled from "styled-components"
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import { AiOutlineCheck } from "react-icons/ai"
 
 const TestItem = (props) => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(false)
 
   return (
     <ItemWrapper>
@@ -24,11 +25,13 @@ const TestItem = (props) => {
         <div
           className={`checkbox ${checked && "checked"}`}
           onClick={() => setChecked(!checked)}
-        ></div>
+        >
+          <AiOutlineCheck />
+        </div>
       </div>
     </ItemWrapper>
-  );
-};
+  )
+}
 
 const ItemWrapper = styled.div`
   border: 2px solid black;
@@ -62,20 +65,29 @@ const ItemWrapper = styled.div`
   }
 
   .number {
-    padding: 1rem;
+    padding: 1.1rem;
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    background-color: ${(props) => props.theme.accent};
+    color: white;
   }
 
   .checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    margin: 10px;
+    margin: 1rem;
     border: 1px solid black;
+    color: white;
 
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
   }
   .checked {
-    background-color: green;
+    color: black;
+    background-color: lightgreen;
   }
-`;
+`
 
-export default TestItem;
+export default TestItem

@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom";
-import { answerKeys } from "../data/answerKeys";
-import styled from "styled-components";
-import Question from "../components/Question";
+import { useParams } from "react-router-dom"
+import { answerKeys } from "../data/answerKeys"
+import styled from "styled-components"
+import Question from "../components/Question"
 
 const Test = () => {
-  const { id } = useParams();
-  const testKeys = answerKeys.find((el) => el.id === id);
+  const { slug } = useParams()
+  const testKeys = answerKeys.find((el) => el.slug === slug)
 
   return (
     <TestWrapper>
@@ -21,8 +21,8 @@ const Test = () => {
         <button className="finish-button">Skontroluj si výsledky</button>
       </main>
     </TestWrapper>
-  );
-};
+  )
+}
 
 const TestWrapper = styled.div`
   .header {
@@ -45,6 +45,6 @@ const TestWrapper = styled.div`
     width: 100%;
     font-size: 1rem;
   }
-`;
+`
 
-export default Test;
+export default Test
