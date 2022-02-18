@@ -1,6 +1,7 @@
 export const answerKeys = [
   {
     id: 1,
+    slug: "2012-6306",
     name: "Maturitný test 2012 - 6306",
     questions: [
       {
@@ -155,4 +156,4 @@ export const answerKeys = [
       },
     ],
   },
-];
+]

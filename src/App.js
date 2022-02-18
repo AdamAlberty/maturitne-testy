@@ -18,7 +18,7 @@ function App() {
           <GlobalHeader />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/test/:id" element={<Test />} />
+            <Route path="/test/:slug" element={<Test />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
