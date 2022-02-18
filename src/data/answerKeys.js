@@ -153,7 +153,6 @@ export const answerKeys = [
         type: "select",
         answer: "C",
       },
-
     ],
   },
 ];
