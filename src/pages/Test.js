@@ -5,9 +5,7 @@ import Question from "../components/Question";
 
 const Test = () => {
   const { id } = useParams();
-
-  const testKeys = answerKeys.find((el) => el.id == id);
-  console.log(testKeys);
+  const testKeys = answerKeys.find((el) => el.id === id);
 
   return (
     <TestWrapper>
