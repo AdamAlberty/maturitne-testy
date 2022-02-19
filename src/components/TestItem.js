@@ -11,12 +11,21 @@ const TestItem = (props) => {
           <a href={props.testLink} target="_blank" rel="noopener noreferrer">
             {props.name}
           </a>
-          <div className="code">{props.code}</div>
+          <div className="left-bottom">
+            <div className="code">{props.code}</div>
+            {typeof props.testScore === "number" && (
+              <div className="test-score">
+                {((props.testScore / 30) * 100).toFixed(2)}%
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       <div className="right">
-        <Link to={`/test/${props.slug}`}>Spustiť test</Link>
+        <Link className="start-test-button" to={`/test/${props.slug}`}>
+          Spustiť test
+        </Link>
 
         <a href={props.keysLink} target="_blank" rel="noopener noreferrer">
           Odpovede
@@ -43,17 +52,6 @@ const ItemWrapper = styled.div`
   .right {
     display: flex;
     align-items: center;
-    a {
-      display: inline-block;
-      padding: 0.3rem;
-      text-decoration: none;
-      font-size: 0.9rem;
-
-      &:hover {
-        color: white;
-        background-color: black;
-      }
-    }
   }
 
   .left {
@@ -67,6 +65,11 @@ const ItemWrapper = styled.div`
     }
   }
 
+  .left-bottom {
+    display: flex;
+    align-items: center;
+  }
+
   .code {
     padding: 0.2rem;
     font-size: 0.9rem;
@@ -74,6 +77,36 @@ const ItemWrapper = styled.div`
     margin-top: 0.2rem;
     border-radius: 0.2rem;
     background-color: #efefef;
+    margin-right: 0.5rem;
+  }
+
+  .test-score {
+    font-size: 1.1rem;
+    font-family: monospace;
+  }
+
+  .start-test-button {
+    background: linear-gradient(to right, #ffb347, #ffcc33);
+    font-weight: bold;
+    margin-right: 0.5rem;
+    padding: 0.5rem 0.3rem;
+    border-radius: 0.3rem;
+
+    &:hover {
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      color: white;
+    }
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.3rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+
+    &:hover {
+      color: green;
+    }
   }
 
   .number {

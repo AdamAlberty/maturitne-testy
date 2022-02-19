@@ -9,3 +9,4 @@ simple design
 - neskor interaktivne testy, ktore automaticky skontroluju
 - priemerne percento
 - ukazovanie vysledkov (ulozenie v browseri)
+- casovac na testy

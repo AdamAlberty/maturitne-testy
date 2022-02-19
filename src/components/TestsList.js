@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 
 const TestsList = () => {
   const [completedTests, setCompletedTests] = useState([])
+  const [testScores, setTestScores] = useState({})
 
   useEffect(() => {
     const completedTestsFromStorage = JSON.parse(
@@ -13,7 +14,14 @@ const TestsList = () => {
     if (completedTestsFromStorage) {
       setCompletedTests(completedTestsFromStorage)
     } else {
-      localStorage.setItem("completedTests", JSON.stringify([1, 2, 3, 4]))
+      localStorage.setItem("completedTests", JSON.stringify([]))
+    }
+
+    const testScoresFromStorage = JSON.parse(localStorage.getItem("testScores"))
+    if (!testScoresFromStorage) {
+      localStorage.setItem("testScores", JSON.stringify({}))
+    } else {
+      setTestScores(testScoresFromStorage)
     }
   }, [])
 
@@ -39,6 +47,7 @@ const TestsList = () => {
       <h2>Matematika</h2>
       {tests.map((test) => (
         <TestItem
+          testScore={testScores[test.id]}
           completed={completedTests.includes(test.id)}
           code={test.code}
           handleCompleted={handleCompleted}

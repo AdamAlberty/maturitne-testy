@@ -92,7 +92,7 @@ const QuestionWrapper = styled.div`
 
     & > div {
       font-size: 1.2rem;
-      padding: 0.5rem 1rem;
+      padding: 0.8rem 1.3rem;
       border: 2px solid black;
     }
   }

@@ -16,7 +16,6 @@ const Test = () => {
     const newUserAnswers = userAnswers
     newUserAnswers[questionNumber - 1] = answer
     setUserAnswers(newUserAnswers)
-    console.log(userAnswers)
   }
 
   const handleTestSubmit = () => {
@@ -35,6 +34,15 @@ const Test = () => {
       }
     })
 
+    const testScores = JSON.parse(localStorage.getItem("testScores"))
+    if (!testScores) {
+      const newScores = { [testKeys.id]: score }
+      localStorage.setItem("testScores", JSON.stringify(newScores))
+    } else {
+      testScores[testKeys.id] = score
+      localStorage.setItem("testScores", JSON.stringify(testScores))
+    }
+
     setUserStats({ score: score })
     setEvaluationModal(true)
   }
@@ -46,13 +54,29 @@ const Test = () => {
       </header>
 
       <main className="questions">
-        {testKeys.questions.map((question) => (
-          <Question
-            number={question.number}
-            type={question.type}
-            handleAnswer={handleAnswer}
-          />
-        ))}
+        <div className="question-columns">
+          <div>
+            {testKeys.questions.slice(0, 20).map((question) => (
+              <Question
+                key={question.number}
+                number={question.number}
+                type={question.type}
+                handleAnswer={handleAnswer}
+              />
+            ))}
+          </div>
+
+          <div>
+            {testKeys.questions.slice(20, 30).map((question) => (
+              <Question
+                key={question.number}
+                number={question.number}
+                type={question.type}
+                handleAnswer={handleAnswer}
+              />
+            ))}
+          </div>
+        </div>
 
         <button onClick={handleTestSubmit} className="finish-button">
           Skontroluj si výsledky
@@ -73,7 +97,19 @@ const TestWrapper = styled.div`
 
   .questions {
     max-width: 400px;
+    @media (min-width: 800px) {
+      max-width: 800px;
+    }
+
     margin: 0 auto 3rem auto;
+  }
+
+  .question-columns {
+    @media (min-width: 800px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
   }
 
   .finish-button {
