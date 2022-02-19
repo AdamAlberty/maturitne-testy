@@ -6,7 +6,7 @@ const Question = ({ number, type, handleAnswer }) => {
 
   useEffect(() => {
     handleAnswer(number, answer)
-  }, [answer])
+  }, [answer, handleAnswer, number])
 
   return (
     <QuestionWrapper>
