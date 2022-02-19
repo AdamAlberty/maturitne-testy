@@ -1,11 +1,45 @@
-import styled from "styled-components";
-import { tests } from "../data/tests.ts";
-import TestItem from "./TestItem";
+import styled from "styled-components"
+import { tests } from "../data/tests.ts"
+import TestItem from "./TestItem"
+import { useEffect, useState } from "react"
+
 const TestsList = () => {
+  const [completedTests, setCompletedTests] = useState([])
+
+  useEffect(() => {
+    const completedTestsFromStorage = JSON.parse(
+      localStorage.getItem("completedTests")
+    )
+    if (completedTestsFromStorage) {
+      setCompletedTests(completedTestsFromStorage)
+    } else {
+      localStorage.setItem("completedTests", JSON.stringify([1, 2, 3, 4]))
+    }
+  }, [])
+
+  const handleCompleted = (id, isCompleted) => {
+    if (isCompleted) {
+      setCompletedTests([...completedTests, id])
+      localStorage.setItem(
+        "completedTests",
+        JSON.stringify([...completedTests, id])
+      )
+    } else {
+      const index = completedTests.indexOf(id)
+      if (index > -1) {
+        const newCompleted = completedTests.filter((el) => el !== id)
+        setCompletedTests(newCompleted)
+        localStorage.setItem("completedTests", JSON.stringify(newCompleted))
+      }
+    }
+  }
+
   return (
     <ListWrapper>
       {tests.map((test) => (
         <TestItem
+          completed={completedTests.includes(test.id)}
+          handleCompleted={handleCompleted}
           key={test.id}
           id={test.id}
           slug={test.slug}
@@ -15,13 +49,13 @@ const TestsList = () => {
         />
       ))}
     </ListWrapper>
-  );
-};
+  )
+}
 
 const ListWrapper = styled.section`
   padding: 1rem;
   max-width: 700px;
   margin: 1rem auto;
-`;
+`
 
-export default TestsList;
+export default TestsList

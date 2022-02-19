@@ -1,11 +1,8 @@
 import styled from "styled-components"
-import { useState } from "react"
 import { Link } from "react-router-dom"
 import { AiOutlineCheck } from "react-icons/ai"
 
 const TestItem = (props) => {
-  const [checked, setChecked] = useState(false)
-
   return (
     <ItemWrapper>
       <div className="left">
@@ -23,8 +20,8 @@ const TestItem = (props) => {
         </a>
 
         <div
-          className={`checkbox ${checked && "checked"}`}
-          onClick={() => setChecked(!checked)}
+          className={`checkbox ${props.completed && "checked"}`}
+          onClick={() => props.handleCompleted(props.id, !props.completed)}
         >
           <AiOutlineCheck />
         </div>

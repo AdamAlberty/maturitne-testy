@@ -1,26 +1,56 @@
-import styled from "styled-components";
+import { useState } from "react"
+import styled from "styled-components"
 
 const Question = (props) => {
+  const [answer, setAnswer] = useState(null)
+
   return (
     <QuestionWrapper>
       <div className="question-number">{props.number}</div>
 
       <div className="question-body">
-        {props.type === "long" && <input type="text" />}
+        {props.type === "long" && (
+          <input type="text" onChange={(e) => setAnswer(e.target.value)} />
+        )}
 
         {props.type === "select" && (
           <div className="select">
-            <div>A</div>
-            <div>B</div>
-            <div>C</div>
-            <div>D</div>
-            <div>E</div>
+            <div
+              onClick={() => setAnswer("A")}
+              className={`${answer === "A" && "select--highlight"}`}
+            >
+              A
+            </div>
+            <div
+              onClick={() => setAnswer("B")}
+              className={`${answer === "B" && "select--highlight"}`}
+            >
+              B
+            </div>
+            <div
+              onClick={() => setAnswer("C")}
+              className={`${answer === "C" && "select--highlight"}`}
+            >
+              C
+            </div>
+            <div
+              onClick={() => setAnswer("D")}
+              className={`${answer === "D" && "select--highlight"}`}
+            >
+              D
+            </div>
+            <div
+              onClick={() => setAnswer("E")}
+              className={`${answer === "E" && "select--highlight"}`}
+            >
+              E
+            </div>
           </div>
         )}
       </div>
     </QuestionWrapper>
-  );
-};
+  )
+}
 
 const QuestionWrapper = styled.div`
   display: flex;
@@ -31,7 +61,7 @@ const QuestionWrapper = styled.div`
 
   .question-number {
     font-size: 1.5rem;
-    width: 30px;
+    width: 50px;
   }
 
   .question-body {
@@ -46,6 +76,7 @@ const QuestionWrapper = styled.div`
   }
 
   .select {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
 
@@ -55,6 +86,11 @@ const QuestionWrapper = styled.div`
       border: 2px solid black;
     }
   }
-`;
 
-export default Question;
+  .select--highlight {
+    background-color: black;
+    color: white;
+  }
+`
+
+export default Question

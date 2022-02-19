@@ -32,18 +32,26 @@ const TestWrapper = styled.div`
 
   .questions {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 0 auto 3rem auto;
   }
 
   .finish-button {
     margin-top: 2rem;
     padding: 1rem;
-    background-color: lightblue;
+    background-color: ${(props) => props.theme.accent};
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
     outline: none;
     border: none;
     border-radius: 0.5rem;
     width: 100%;
     font-size: 1rem;
+
+    &:hover {
+      background-color: blue;
+    }
   }
 `
 
