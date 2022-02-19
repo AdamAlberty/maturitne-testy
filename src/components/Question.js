@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 
-const Question = (props) => {
+const Question = ({ number, type, handleAnswer }) => {
   const [answer, setAnswer] = useState(null)
 
   useEffect(() => {
-    props.handleAnswer(props.number, answer)
+    handleAnswer(number, answer)
   }, [answer])
 
   return (
     <QuestionWrapper>
-      <div className="question-number">{props.number}</div>
+      <div className="question-number">{number}</div>
 
       <div className="question-body">
-        {props.type === "long" && (
+        {type === "long" && (
           <input type="text" onChange={(e) => setAnswer(e.target.value)} />
         )}
 
-        {props.type === "select" && (
+        {type === "select" && (
           <div className="select">
             <div
               onClick={() => setAnswer("A")}
