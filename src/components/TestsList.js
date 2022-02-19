@@ -36,9 +36,11 @@ const TestsList = () => {
 
   return (
     <ListWrapper>
+      <h2>Matematika</h2>
       {tests.map((test) => (
         <TestItem
           completed={completedTests.includes(test.id)}
+          code={test.code}
           handleCompleted={handleCompleted}
           key={test.id}
           id={test.id}
@@ -56,6 +58,10 @@ const ListWrapper = styled.section`
   padding: 1rem;
   max-width: 700px;
   margin: 1rem auto;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
 `
 
 export default TestsList

@@ -7,9 +7,12 @@ const TestItem = (props) => {
     <ItemWrapper>
       <div className="left">
         <div className="number">{props.id}</div>
-        <a href={props.testLink} target="_blank" rel="noopener noreferrer">
-          {props.name}
-        </a>
+        <div>
+          <a href={props.testLink} target="_blank" rel="noopener noreferrer">
+            {props.name}
+          </a>
+          <div className="code">{props.code}</div>
+        </div>
       </div>
 
       <div className="right">
@@ -31,6 +34,7 @@ const TestItem = (props) => {
 }
 
 const ItemWrapper = styled.div`
+  padding: 0.5rem 0;
   border: 2px solid black;
   margin-bottom: 1rem;
   display: flex;
@@ -41,8 +45,9 @@ const ItemWrapper = styled.div`
     align-items: center;
     a {
       display: inline-block;
-      padding: 1rem;
+      padding: 0.3rem;
       text-decoration: none;
+      font-size: 0.9rem;
 
       &:hover {
         color: white;
@@ -56,17 +61,27 @@ const ItemWrapper = styled.div`
     align-items: center;
 
     a {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
       text-decoration: none;
     }
   }
 
+  .code {
+    padding: 0.2rem;
+    font-size: 0.9rem;
+    width: max-content;
+    margin-top: 0.2rem;
+    border-radius: 0.2rem;
+    background-color: #efefef;
+  }
+
   .number {
-    padding: 1.1rem;
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
-    background-color: ${(props) => props.theme.accent};
-    color: white;
+    padding: 0.5rem;
+    margin-right: 0.2rem;
+    font-size: 1rem;
+    color: #00c9e9;
+    font-weight: bold;
   }
 
   .checkbox {
@@ -74,10 +89,11 @@ const ItemWrapper = styled.div`
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin: 1rem;
+    margin: 0.5rem;
     border: 1px solid black;
     color: white;
 
+    flex-shrink: 0;
     width: 25px;
     height: 25px;
   }
