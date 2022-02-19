@@ -1,8 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 
 const Question = (props) => {
   const [answer, setAnswer] = useState(null)
+
+  useEffect(() => {
+    props.handleAnswer(props.number, answer)
+  }, [answer])
 
   return (
     <QuestionWrapper>
@@ -53,15 +57,15 @@ const Question = (props) => {
 }
 
 const QuestionWrapper = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 10% 90%;
   align-items: center;
   width: 100%;
 
   margin-top: 0.4rem;
 
   .question-number {
-    font-size: 1.5rem;
-    width: 50px;
+    font-size: 1.2rem;
   }
 
   .question-body {
@@ -71,8 +75,14 @@ const QuestionWrapper = styled.div`
   input {
     width: 100%;
     padding: 0.5rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-family: inherit;
     border: 2px solid black;
+    outline: none;
+
+    &:focus {
+      border-color: #4e8cb1;
+    }
   }
 
   .select {
