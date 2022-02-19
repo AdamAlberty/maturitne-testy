@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
+import JSConfetti from "js-confetti"
 
 const EvaluationModal = ({ userStats }) => {
+  const jsConfetti = new JSConfetti()
+  jsConfetti.addConfetti()
+
   return (
     <ModalWrapper>
       <div className="modal-inner">
