@@ -2,9 +2,42 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 import JSConfetti from "js-confetti"
 
-const EvaluationModal = ({ userStats }) => {
+const EvaluationModal = ({ userStats, userAnswers, testKeys }) => {
+  // Confetti
   const jsConfetti = new JSConfetti()
   jsConfetti.addConfetti()
+
+  const wrongAnswers = userStats.wrongAnswers.map((index) => {
+    if (index < 20) {
+      return (
+        <div className="wrong-answer">
+          <div className="number">{index + 1}</div>
+          <div className="answer-body">
+            <p>Tvoja odpoveď</p>
+            <div>{userAnswers[index] || "_______"}</div>
+          </div>
+          <div>
+            <p>Správne malo byť</p>
+            <div>{testKeys.questions[index].answers}</div>
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div className="wrong-answer">
+          <div className="number">{index + 1}</div>
+          <div className="answer-body">
+            <p>Tvoja odpoveď</p>
+            <div>{userAnswers[index] || "_______"}</div>
+          </div>
+          <div>
+            <p>Správne malo byť</p>
+            <div>{testKeys.questions[index].answer}</div>
+          </div>
+        </div>
+      )
+    }
+  })
 
   return (
     <ModalWrapper>
@@ -15,14 +48,17 @@ const EvaluationModal = ({ userStats }) => {
 
         <div className="top-grid">
           <section className="score">
-            <h3>Tvoje Skóre</h3>
-            <div>{userStats.score} z 30</div>
+            <h3>Skóre</h3>
+            <div>{userStats.score} / 30</div>
           </section>
           <section className="score">
-            <h3>To je</h3>
+            <h3>Percentá</h3>
             <div>{((userStats.score / 30) * 100).toFixed(2)}%</div>
           </section>
         </div>
+
+        {/* Chyby */}
+        <section className="answers">{wrongAnswers}</section>
 
         <Link to="/" className="link">
           Späť domov
@@ -68,11 +104,14 @@ const ModalWrapper = styled.div`
     border-radius: 0.4rem;
     padding: 0.8rem 0.5rem;
     h3 {
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
     }
 
     div {
-      font-size: 1.3rem;
+      font-size: 1.7rem;
+      text-align: center;
+      font-weight: bold;
     }
   }
 
@@ -92,6 +131,38 @@ const ModalWrapper = styled.div`
     font-size: 1.1rem;
     font-weight: bold;
     color: white;
+  }
+
+  .answers {
+    max-height: 50vh;
+    overflow-y: scroll;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .wrong-answer {
+    display: flex;
+    align-items: flex-start;
+
+    margin-top: 0.2rem;
+    padding: 1rem 0.5rem;
+    background-color: #f7f7f7;
+    border-radius: 0.4rem;
+  }
+
+  .answer-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .number {
+    background-color: #ffdeec;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    margin-right: 0.3rem;
+    font-weight: bold;
+    min-width: 30px;
+    min-height: 30px;
   }
 `
 

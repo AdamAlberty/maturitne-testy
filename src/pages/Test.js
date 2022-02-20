@@ -20,17 +20,18 @@ const Test = () => {
 
   const handleTestSubmit = () => {
     let score = 0
+    const wrongAnswers = []
     userAnswers.forEach((userAnswer, i) => {
       // Long answers
       if (i < 20) {
-        if (testKeys.questions[i].answers.includes(userAnswer)) {
-          score++
-        }
+        testKeys.questions[i].answers.includes(userAnswer)
+          ? score++
+          : wrongAnswers.push(i)
         // A through E
       } else {
-        if (testKeys.questions[i].answer === userAnswer) {
-          score++
-        }
+        testKeys.questions[i].answer === userAnswer
+          ? score++
+          : wrongAnswers.push(i)
       }
     })
 
@@ -43,7 +44,7 @@ const Test = () => {
       localStorage.setItem("testScores", JSON.stringify(testScores))
     }
 
-    setUserStats({ score: score })
+    setUserStats({ score, wrongAnswers })
     setEvaluationModal(true)
   }
 
@@ -82,7 +83,13 @@ const Test = () => {
           Skontroluj si výsledky
         </button>
 
-        {evaluationModal && <EvaluationModal userStats={userStats} />}
+        {evaluationModal && (
+          <EvaluationModal
+            testKeys={testKeys}
+            userAnswers={userAnswers}
+            userStats={userStats}
+          />
+        )}
       </main>
     </TestWrapper>
   )
