@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { tests } from "../data/tests.ts"
 import TestItem from "./TestItem"
 import { useEffect, useState } from "react"
+import PlaylistLink from "./PlaylistLink"
 
 const TestsList = () => {
   const [completedTests, setCompletedTests] = useState([])
@@ -59,6 +60,8 @@ const TestsList = () => {
           keysLink={test.keysLink}
         />
       ))}
+
+      <PlaylistLink />
     </ListWrapper>
   )
 }

@@ -23,10 +23,6 @@ const TestItem = (props) => {
       </div>
 
       <div className="right">
-        <Link className="start-test-button" to={`/test/${props.slug}`}>
-          Spustiť test
-        </Link>
-
         <a href={props.keysLink} target="_blank" rel="noopener noreferrer">
           Odpovede
         </a>
@@ -37,13 +33,17 @@ const TestItem = (props) => {
         >
           <AiOutlineCheck />
         </div>
+
+        <Link className="start-test-button" to={`/test/${props.slug}`}>
+          Spustiť test
+        </Link>
       </div>
     </ItemWrapper>
   )
 }
 
 const ItemWrapper = styled.div`
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.3rem;
   border: 2px solid black;
   margin-bottom: 1rem;
   display: flex;
@@ -75,6 +75,7 @@ const ItemWrapper = styled.div`
     font-size: 0.9rem;
     width: max-content;
     margin-top: 0.2rem;
+    margin-left: 0.3rem;
     border-radius: 0.2rem;
     background-color: #efefef;
     margin-right: 0.5rem;
@@ -86,16 +87,10 @@ const ItemWrapper = styled.div`
   }
 
   .start-test-button {
-    background: linear-gradient(to right, #ffb347, #ffcc33);
+    background: black;
     font-weight: bold;
-    margin-right: 0.5rem;
     padding: 0.5rem 0.3rem;
-    border-radius: 0.3rem;
-
-    &:hover {
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-      color: white;
-    }
+    color: white;
   }
 
   a {
@@ -103,13 +98,10 @@ const ItemWrapper = styled.div`
     padding: 0.3rem;
     text-decoration: none;
     font-size: 0.9rem;
-
-    &:hover {
-      color: green;
-    }
   }
 
   .number {
+    display: none;
     padding: 0.5rem;
     margin-right: 0.2rem;
     font-size: 1rem;
