@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Home from "./pages/Home"
-import Test from "./pages/Test"
-import NotFound from "./pages/NotFound"
+import Home from "./pages/Home.tsx"
+import Test from "./pages/Test.tsx"
+import NotFound from "./pages/NotFound.tsx"
 import GlobalHeader from "./components/GlobalHeader.tsx"
 import Footer from "./components/Footer.tsx"
 

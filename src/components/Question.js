@@ -8,46 +8,60 @@ const Question = ({ number, type, handleAnswer }) => {
   }, [answer, handleAnswer, number])
 
   return (
-    <div>
-      <div className="question-number">{number}</div>
+    <div className="mt-4 grid grid-cols-[25px_1fr]">
+      <div className="mr-2">{number}</div>
 
-      <div className="question-body">
+      <div className="w-full">
         {type === "long" && (
-          <input type="text" onChange={(e) => setAnswer(e.target.value)} />
+          <input
+            type="text"
+            className="w-full rounded-md border-2 border-gray-500 bg-dark p-2 font-mono text-lg shadow-md outline-none focus:border-blue-400"
+            onChange={(e) => setAnswer(e.target.value)}
+          />
         )}
 
         {type === "select" && (
-          <div className="select">
-            <div
+          <div className="flex justify-between">
+            <button
               onClick={() => setAnswer("A")}
-              className={`${answer === "A" && "select--highlight"}`}
+              className={`rounded-md border-2 border-gray-500 bg-darky px-5 py-3 text-lg shadow-md outline-none focus:border-blue-400 ${
+                answer === "A" && "bg-blue-500"
+              }`}
             >
               A
-            </div>
-            <div
+            </button>
+            <button
               onClick={() => setAnswer("B")}
-              className={`${answer === "B" && "select--highlight"}`}
+              className={`rounded-md border-2 border-gray-500 bg-darky py-3 px-5 text-lg shadow-md outline-none focus:border-blue-400 ${
+                answer === "B" && "bg-blue-500"
+              }`}
             >
               B
-            </div>
-            <div
+            </button>
+            <button
               onClick={() => setAnswer("C")}
-              className={`${answer === "C" && "select--highlight"}`}
+              className={`rounded-md border-2 border-gray-500 bg-darky px-5 py-3 text-lg shadow-md outline-none focus:border-blue-400 ${
+                answer === "C" && "bg-blue-500"
+              }`}
             >
               C
-            </div>
-            <div
+            </button>
+            <button
               onClick={() => setAnswer("D")}
-              className={`${answer === "D" && "select--highlight"}`}
+              className={`rounded-md border-2 border-gray-500 bg-darky px-5 py-3 text-lg shadow-md outline-none focus:border-blue-400 ${
+                answer === "D" && "bg-blue-500"
+              }`}
             >
               D
-            </div>
-            <div
+            </button>
+            <button
               onClick={() => setAnswer("E")}
-              className={`${answer === "E" && "select--highlight"}`}
+              className={`rounded-md border-2 border-gray-500 bg-darky py-3 px-5 text-lg shadow-md outline-none focus:border-blue-400  ${
+                answer === "E" && "bg-blue-500"
+              }`}
             >
               E
-            </div>
+            </button>
           </div>
         )}
       </div>
