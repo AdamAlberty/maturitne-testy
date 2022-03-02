@@ -1,7 +1,7 @@
 import { tests } from "../data/tests.ts"
 import TestItem from "./TestItem.tsx"
 import { useEffect, useState } from "react"
-import PlaylistLink from "./PlaylistLink"
+import PlaylistLink from "./PlaylistLink.tsx"
 
 const TestsList = () => {
   const [completedTests, setCompletedTests] = useState([])

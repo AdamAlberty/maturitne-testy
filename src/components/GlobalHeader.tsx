@@ -4,7 +4,13 @@ import { FaGithub } from "react-icons/fa"
 
 const GlobalHeader = () => {
   return (
-    <header className="sticky top-0 bg-darky">
+    <header
+      className="sticky top-0 bg-darky"
+      style={{
+        background: "rgba(0, 0, 50, 0.2)",
+        backdropFilter: "blur(10px)",
+      }}
+    >
       <div className="flex items-center justify-between p-4">
         <div className="font-display text-2xl">
           <Link to="/">Maturitné testy</Link>
