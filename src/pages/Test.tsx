@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import { answerKeys } from "../data/answerKeys"
 import Question from "../components/Question"
 import { useState } from "react"
-import EvaluationModal from "../components/EvaluationModal"
+import EvaluationModal from "../components/EvaluationModal.tsx"
 
 const Test = () => {
   const { slug } = useParams()
