@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import styled from "styled-components"
 
 const Question = ({ number, type, handleAnswer }) => {
   const [answer, setAnswer] = useState(null)
@@ -9,7 +8,7 @@ const Question = ({ number, type, handleAnswer }) => {
   }, [answer, handleAnswer, number])
 
   return (
-    <QuestionWrapper>
+    <div>
       <div className="question-number">{number}</div>
 
       <div className="question-body">
@@ -52,55 +51,8 @@ const Question = ({ number, type, handleAnswer }) => {
           </div>
         )}
       </div>
-    </QuestionWrapper>
+    </div>
   )
 }
-
-const QuestionWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 10% 90%;
-  align-items: center;
-  width: 100%;
-
-  margin-top: 0.4rem;
-
-  .question-number {
-    font-size: 1.2rem;
-  }
-
-  .question-body {
-    width: 100%;
-  }
-
-  input {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1.1rem;
-    font-family: inherit;
-    border: 2px solid black;
-    outline: none;
-
-    &:focus {
-      border-color: #4e8cb1;
-    }
-  }
-
-  .select {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-
-    & > div {
-      font-size: 1.2rem;
-      padding: 0.8rem 1.3rem;
-      border: 2px solid black;
-    }
-  }
-
-  .select--highlight {
-    background-color: black;
-    color: white;
-  }
-`
 
 export default Question

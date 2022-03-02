@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import { tests } from "../data/tests.ts"
 import TestItem from "./TestItem"
 import { useEffect, useState } from "react"
@@ -44,7 +43,7 @@ const TestsList = () => {
   }
 
   return (
-    <ListWrapper>
+    <section>
       <h2>Matematika</h2>
       {tests.map((test) => (
         <TestItem
@@ -62,18 +61,8 @@ const TestsList = () => {
       ))}
 
       <PlaylistLink />
-    </ListWrapper>
+    </section>
   )
 }
-
-const ListWrapper = styled.section`
-  padding: 1rem;
-  max-width: 700px;
-  margin: 1rem auto;
-
-  h2 {
-    margin-bottom: 1rem;
-  }
-`
 
 export default TestsList

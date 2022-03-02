@@ -1,17 +1,9 @@
-import styled from "styled-components";
-
 const NotFound = () => {
   return (
-    <NotFoundWrapper>
+    <div>
       <div>Táto stránka nebola nájdená</div>
-    </NotFoundWrapper>
-  );
-};
+    </div>
+  )
+}
 
-const NotFoundWrapper = styled.div`
-  font-size: 1.2rem;
-  margin: 5rem;
-  text-align: center;
-`;
-
-export default NotFound;
+export default NotFound
