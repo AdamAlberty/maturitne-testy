@@ -3,6 +3,7 @@ import Home from "./pages/Home"
 import Test from "./pages/Test"
 import NotFound from "./pages/NotFound"
 import GlobalHeader from "./components/GlobalHeader.tsx"
+import Footer from "./components/Footer.tsx"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/test/:slug" element={<Test />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   )

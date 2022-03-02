@@ -11,7 +11,7 @@ const GlobalHeader = () => {
         backdropFilter: "blur(10px)",
       }}
     >
-      <div className="flex items-center justify-between p-4">
+      <div className="mx-auto flex max-w-screen-2xl items-center justify-between p-4">
         <div className="font-display text-2xl">
           <Link to="/">Maturitné testy</Link>
         </div>
