@@ -1,5 +1,5 @@
 import { tests } from "../data/tests.ts"
-import TestItem from "./TestItem"
+import TestItem from "./TestItem.tsx"
 import { useEffect, useState } from "react"
 import PlaylistLink from "./PlaylistLink"
 
@@ -43,8 +43,8 @@ const TestsList = () => {
   }
 
   return (
-    <section>
-      <h2>Matematika</h2>
+    <section className="mx-auto mt-10 max-w-screen-md p-3">
+      <h2 className="font-display text-4xl">Matematika</h2>
       {tests.map((test) => (
         <TestItem
           testScore={testScores[test.id]}

@@ -1,10 +1,10 @@
-import TestsList from "../components/TestsList"
+import TestsList from "../components/TestsList.tsx"
 
 const Home = () => {
   return (
-    <div>
+    <>
       <TestsList />
-    </div>
+    </>
   )
 }
 
