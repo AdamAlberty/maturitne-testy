@@ -9,7 +9,7 @@ const TestItem = (props) => {
             className="font-display text-lg transition-colors hover:text-blue-400 focus:text-blue-400"
             href={props.testLink}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
           >
             {props.name}
           </a>
@@ -36,7 +36,7 @@ const TestItem = (props) => {
           className="mt-1 text-sm text-gray-400 hover:text-gray-200"
           href={props.keysLink}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noreferrer"
         >
           Oficiálne odpovede
         </a>

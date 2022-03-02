@@ -43,7 +43,13 @@ const TestsList = () => {
   }
 
   return (
-    <section className="mx-auto mt-10 max-w-screen-md p-3">
+    <section className="relative mx-auto mt-10 max-w-screen-md p-3">
+      <img
+        className="absolute top-24 -right-56 w-32 rotate-45"
+        src="/img/math-illustration.svg"
+        alt="Planet"
+      />
+
       <h2 className="font-display text-4xl">Matematika</h2>
       {tests.map((test) => (
         <TestItem

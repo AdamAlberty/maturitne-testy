@@ -16,10 +16,16 @@ const Home = () => {
 
   return (
     <>
+      <img
+        className="absolute top-44 left-16 w-32"
+        src="/img/planet-illustration.svg"
+        alt="Planet"
+      />
+
       {/* Quote */}
       <section className="mx-auto mt-6 max-w-md">
         <blockquote>
-          <p className="text-lg">{quote && quote.content}</p>
+          <p className="font-display text-lg">{quote && quote.content}</p>
           <cite className="text-right text-sm">- {quote && quote.author}</cite>
         </blockquote>
       </section>

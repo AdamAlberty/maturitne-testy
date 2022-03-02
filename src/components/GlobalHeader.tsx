@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa"
 const GlobalHeader = () => {
   return (
     <header
-      className="sticky top-0 bg-darky"
+      className="sticky top-0 z-20 bg-darky"
       style={{
         background: "rgba(0, 0, 50, 0.2)",
         backdropFilter: "blur(10px)",
@@ -20,7 +20,7 @@ const GlobalHeader = () => {
           <a
             href="https://github.com/AdamAlberty/maturitne-testy"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
             className="flex items-center rounded border-2  p-2 transition-colors hover:bg-light hover:text-darky"
           >
             <FaGithub />
